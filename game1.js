@@ -8,6 +8,7 @@ const spanLives = document.querySelector('#lives')
 const spanTime = document.querySelector('#time')
 const spanRecord = document.querySelector('#record')
 const pResult = document.querySelector('#result')
+const btnReiniciar = document.querySelector('#reload')
 let canvasSize;
 let elementsSize;
 let mapLevel = 0
@@ -139,7 +140,7 @@ function gameWin(){
         }
     } else {
         localStorage.setItem('recordTime', playerTime)
-        pResult.innerText = 'Trata de superar tu tuempo'
+        pResult.innerText = 'Trata de superar tu tiempo'
     }
 
     console.log({recordTime, playerTime});
@@ -165,7 +166,11 @@ btnUp.addEventListener('click', moveUp);
 btnLeft.addEventListener('click', moveLeft);
 btnRight.addEventListener('click', moveRight);
 btnDown.addEventListener('click', moveDown);
+btnReiniciar.addEventListener('click', reiniciarJuego)
 
+function reiniciarJuego(){
+    location.reload()   
+}
 function moveByKeys(event) {
     if (event.key == 'ArrowUp') moveUp();
     else if (event.key == 'ArrowLeft') moveLeft();
